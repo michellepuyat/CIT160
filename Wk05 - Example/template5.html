@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 5: Example</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Excercise for the Exam</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <label>Compute Mileage</label>
+            <label>Beginning reading in an Odometer: <input type="text" id="beginning"></label>
+            <label>Ending reading in an Odometer: <input type="text" id="ending"></label>
+            <label>Number of Gallons of Gasoline Used: <input type="text" id="gallon"></label>
+            <label><button type="button" onclick="compute()">mileage in miles per gallons</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+            <p><span id="output2"></span></p>
+            <p><span id="output3"></span></p>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        
+        <script>
+            function compute(){
+                //INPUT - get numner of students and teams
+                let beginning = parseFloat(document.getElementById('beginning').value);
+                let ending = parseFloat(document.getElementById('ending').value);
+                let gallon = parseFloat(document.getElementById('gallon').value);
+                //PROCESS
+                //get distance travelled
+                let nMembers = Math.floor(student/team);
+                //get excess number of students
+                let excessStudent = student % team;
+                //compute teams with more members
+                let moreStudent = ++nMembers;
+                let teamLessStudent = team - excessStudent;
+                // distribute excess students with the team
+                let finalOutput = excessStudent + " teams with " + moreStudent + " members and " + teamLessStudent + " teams with " + --nMembers + " members"
+                //OUTPUT - temperature converted to fahrenheit
+                document.getElementById('output').innerHTML = nMembers + " number of students in a team";
+                document.getElementById('output2').innerHTML = excessStudent + " number of excess students";
+                document.getElementById('output3').innerHTML = finalOutput;
+            }
+        </script>
+    </body>
+</html>
