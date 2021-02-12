@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 5: Exam #2</title>
+    </head>
+    <body>
+        <main>
+            <label>Radius of the Cylinder: <input type="text" id="radius"></label><br><br>
+            <label>Height of the Cylinder: <input type="text" id="height"></label><br><br>
+            <label><button onclick="VolumeOfCylinder()">Compute Volume of the Cylinder</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+
+
+        <script>
+            function VolumeOfCylinder(){
+                //INPUT - get the radius and height of the cylinder
+                let radius = parseFloat(document.getElementById('radius').value);
+                let height = parseFloat(document.getElementById('height').value);
+                //PROCESS - compute for the volume of the cylinder
+                let volume = Math.round(Math.PI * Math.pow(radius,2) * height);
+                //OUTPUT - the volume of the cylinder
+                document.getElementById('output').innerHTML = volume;
+            }
+        </script>
+    </body>
+</html>

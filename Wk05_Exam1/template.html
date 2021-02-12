@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 5: Exam #1</title>
+    </head>
+    <body>
+        <main>
+            <label>Total regular hours worked: <input type="text" id="regularHr"></label><br><br>
+            <label>Total overtime hours worked: <input type="text" id="otHr"></label><br><br>
+            <label><button onclick="afterTaxPay()">Compute After Tax Pay</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+
+
+        <script>
+            function afterTaxPay(){
+                //INPUT - get the number of regular and overtime hours worked
+                let regularHr = parseFloat(document.getElementById('regularHr').value);
+                let otHr = parseFloat(document.getElementById('otHr').value);
+                //set amout per regular hour, OT hour worked and tax percentage
+                let regularPay = 15;
+                let otPay = 22.5;
+                let taxPercent = .15;
+                //PROCESS - compute gross pay
+                let grossPay = regularPay * regularHr + otPay * otHr;
+                //compute for tax
+                let tax = grossPay * taxPercent;
+                //compute for after tax pay
+                let output = grossPay - tax;
+                //OUTPUT - after taxt pay
+                document.getElementById('output').innerHTML = '$' + output.toFixed(2);
+            }
+        </script>
+    </body>
+</html>
