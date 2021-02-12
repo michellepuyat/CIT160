@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 6 Assignment: Simple Calc</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Week 6 Assignment: Simple Calc</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <h3>Test Your Math Skills!</h3>
+            <input type="text" id="firstNumber">
+            <select name="operatorUsed" id="operatorUsed">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+              </select>
+            <input type="text" id="secondNumber">
+            <label>=</label>
+            <input type="text" id="answer">
+            <label><button onclick="checkAnswer()">Check</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+
+        <script src="js/myScript.js"></script>
+    </body>
+</html>
