@@ -21,12 +21,12 @@
         </footer>
         
         <script>
-            var dt = new Date();
+            let dt = new Date();
             document.getElementById("dateToday").innerHTML = dt;
                 //INPUT
-                var month = dt.getMonth();
-                var dayOfMonth = dt.getDate();
-                var dayOfWeek = dt.getDay();
+                let month = dt.getMonth();
+                let dayOfMonth = dt.getDate();
+                let dayOfWeek = dt.getDay();
                 let message = "";
                 //PROCESSING 
                 if ((month == 0 && dayOfMonth == 1) || (month == 6 && dayOfMonth == 4) || (month == 11 && dayOfMonth == 25) || dayOfWeek == 0 || dayOfWeek == 6) {

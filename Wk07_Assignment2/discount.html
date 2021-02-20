@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 7 Assignment: Sales Conditional</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Week 7 Assignment 2</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <h3>Sales Conditional</h3>
+            <label>Today is <span id="dayToday"></label><br>
+            <label>Customer's subtotal amount: <input type="text" id="subtotal"></label><br>
+            <label><button onclick="totalAmountDue()">Compute Total Amount Due</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        
+        <script>
+            //INPUT
+            let dt = new Date();
+            let dayOfWeek = dt.getDay();
+            document.getElementById("dayToday").innerHTML = dt;
+            function totalAmountDue(){
+                let subtotal = parseFloat(document.getElementById('subtotal').value);
+                let totalAmount, taxAfterSale;
+                //PROCESSING 
+                if ((dayOfWeek == 2 || dayOfWeek == 3) && subtotal > 50) { 
+                    subtotal = subtotal - (subtotal * .1) 
+                    totalAmount = subtotal + (subtotal *.06);
+                } else {
+                    totalAmount = subtotal + (subtotal * .06);
+                }
+                //OUTPUT 
+                document.getElementById("output").innerHTML = '$' + totalAmount.toFixed(2);
+            }
+       </script>
+    </body>
+</html>
