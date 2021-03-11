@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 9: Exam #3</title>
+    </head>
+    <body>
+        <main>
+            <label>start: <input type="text" id="start"></label><br><br>
+            <label>end: <input type="text" id="end"></label><br><br>
+            <label>divisor: <input type="text" id="divisor"></label><br><br>
+            <label><button onclick="getResults()">Get Results</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+
+
+        <script>
+            function getResults(){
+                //INPUT 
+                let start = parseFloat(document.getElementById('start').value);
+                let end = parseFloat(document.getElementById('end').value);
+                let divisor = parseFloat(document.getElementById('divisor').value);
+                let output = '';
+                //PROCESS
+                for (i=start; i <= end; i++) {
+                    let remainder = i % divisor;
+                    if (remainder == 0) {
+                        output += `${i} `;
+                    }
+                }
+                //OUTPUT 
+                document.getElementById('output').innerHTML = output;
+            }
+        </script>
+    </body>
+</html>

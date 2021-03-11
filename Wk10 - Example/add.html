@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 10: Example</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Functions</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <h3>Functions</h3>
+            <label>Input 1: <input type="text" id="one"></label>
+            <label>Input 2: <input type="text" id="two"></label>
+            <label><button onclick="addNumbers()">Add Numbers</button></label>
+            <hr>
+            <p><span id="output">Output Placeholder</span></p>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        
+        <script>
+            function addNumbers(){
+                //input
+                let num1 = parseInt(document.getElementById('one').value);
+                let num2 = parseInt(document.getElementById('two').value);
+                //processing
+                let sum = addTwoNumbers(num1, num2);
+                //output
+                document.getElementById('output').innerHTML = sum;
+            }
+            function addTwoNumbers(x, y){
+                let sum = x + y;
+                return sum;
+            }
+        </script>
+    </body>
+</html>

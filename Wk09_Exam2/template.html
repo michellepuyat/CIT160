@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 9: Exam #2</title>
+    </head>
+    <body>
+        <main>
+            <label>1st Number: <input type="text" id="num1"></label><br><br>
+            <label>2nd Number: <input type="text" id="num2"></label><br><br>
+            <label><button onclick="compareNumbers()">Compare Numbers</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+
+
+        <script>
+            function compareNumbers(){
+                //INPUT 
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                let output;
+                //PROCESS - compare two number
+                if ((num1 > 5 && num2 > 5) || (num1 + num2 > 20)) {
+                    output = "True";
+                } else {
+                    output = "False";
+                }
+                //OUTPUT 
+                document.getElementById('output').innerHTML = output;
+            }
+        </script>
+    </body>
+</html>

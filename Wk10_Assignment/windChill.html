@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 10: Assignement</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Wind Chill Calculator</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <label>Temperature: <input type="text" id="temperature">&#8457</label>
+            <label>Wind Speed: <input type="text" id="windSpeed">mph</label>
+            <label><button onclick="doInputOutput()">Wind Chill</button></label>
+            <hr>
+            <div>
+                <p><span id="output"></span></p>
+            </div>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        
+        <script>
+            function doInputOutput(){
+                let t = parseInt(document.getElementById('temperature').value);
+                let v = parseInt(document.getElementById('windSpeed').value);
+                
+                if (t > 50 || v < 3) {
+                    document.getElementById('output').innerHTML =  'Inputs are not valid';
+                } else {
+                    document.getElementById('output').innerHTML = windChill(t, v).toFixed(2) +'\xB0F';
+                }
+            }
+
+            function windChill(t, v){
+                let f = 35.74 + 0.6215 * t - 35.75 * Math.pow(v, 0.16) + 0.4275 * t * Math.pow(v, 0.16);
+                //let f = 35.74 + 0.6215* t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
+                return f;
+            }
+        </script>
+    </body>
+</html>
