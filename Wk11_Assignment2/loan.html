@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 11: Assignement 2</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Loan Calculator</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <label>Amount borrowed (principal) <input type="text" id="principal"></label>
+            <label>Annual interest rate (example: 0.08) <input type="text" id="annualRate"></label>
+            <label>Number of years <input type="text" id="years"></label>
+            <label>Payment per year <input type="text" id="periodsPerYear"></label>
+            <label><button onclick="doPayment()">Compute Payment</button></label>
+            <hr>
+            <div>
+                <p><span id="output1"></span></p>
+            </div>
+            <label>Number of payments paid to date <input type="text" id="numberOfPaymentsPaidToDate"></label>
+            <label><button onclick="doBalance()">Compute Payoff Amount</button></label>
+            <hr>
+            <div>
+                <p><span id="output2"></span></p>
+            </div>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        
+        <script>
+            function doPayment(){
+                let principal = parseFloat(document.getElementById('principal').value);
+                let annualRate = parseFloat(document.getElementById('annualRate').value);
+                let years = parseInt(document.getElementById('years').value);
+                let periodsPerYear = parseInt(document.getElementById('periodsPerYear').value);
+                
+                let p = computePayment(principal, annualRate, years, periodsPerYear).toFixed(2);
+
+                document.getElementById('output1').innerHTML = '$' + p;
+            }
+
+            function computePayment(principal, annualRate, years, periodsPerYear){
+                let a = principal; 
+                let n = years * periodsPerYear;
+                let r = annualRate / periodsPerYear;
+                let p = (a * r) / (1 - Math.pow((1 + r),-n));
+                
+                return p;
+            }
+
+            function doBalance(){
+                let principal = parseFloat(document.getElementById('principal').value);
+                let annualRate = parseFloat(document.getElementById('annualRate').value);
+                let years = parseInt(document.getElementById('years').value);
+                let periodsPerYear = parseInt(document.getElementById('periodsPerYear').value);
+                let numberOfPaymentsPaidToDate = parseInt(document.getElementById('numberOfPaymentsPaidToDate').value);
+                
+                let b = computeBalanace(principal, annualRate, years, periodsPerYear, numberOfPaymentsPaidToDate).toFixed(2);
+
+                document.getElementById('output2').innerHTML = '$' + b;
+            }
+
+            function computeBalanace(principal, annualRate, years, periodsPerYear,  numberOfPaymentsPaidToDate){
+                let a =principal;
+                let n = years * periodsPerYear;
+                let r = annualRate / periodsPerYear;
+                let p = computePayment(principal, annualRate, years, periodsPerYear);
+                let d = numberOfPaymentsPaidToDate;
+                
+                let b = (a * Math.pow((1 + r),d)) - ((p * (Math.pow((1 + r), d) - 1)) / r);
+
+                return b;
+            }
+        </script>
+    </body>
+</html>
