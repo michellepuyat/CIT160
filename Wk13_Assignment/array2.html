@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 12: Assignement 1</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>Arrays</h1>
+            <h2>Michelle Angelie B. Puyat</h2>
+        </header>
+        <main>
+            <label><button onclick="test()">Go! 🥇</button></label>
+            <hr>
+            <div>
+                <p><span id="output"></span></p>
+            </div>
+        </main>
+        <footer>
+            &copy;2021 &bull; Michelle Angelie B. Puyat &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        
+        <script>
+            /* Defining Table
+            * Input: no user input
+            * Processing: Test the addEnds and getMiddle functions by calling them.
+            * Output: The values returned from the addEnds and getMiddle functions.
+            */
+            function test() {
+                let list1 = [ 17, 8, 9, 5, 20 ];
+                let list2 = [ 12, 4, 8, 15, 17, 5, 20, 11 ];
+
+                // Test the countEvens function by calling it two times.
+                let count1 = countEvens(list1);
+                let count2 = countEvens(list2);
+
+                // Test the multiply function by calling it two times.
+                let mult1 = multiply(list1, 3);
+                let mult2 = multiply(list2, 4);
+
+                // Build a string to display to the user.
+                let output =
+                        count1 + '<br>' +
+                        count2 + '<br>' +
+                        mult1 + '<br>' +
+                        mult2;
+
+                // Display the output string for the user to see.
+                document.getElementById('output').innerHTML = output;
+            }
+
+            function countEvens(list) {
+                let cnt = 0;
+                for (i = 0; i <= list.length - 1; i++){
+                    if (list[i] % 2 == 0){
+                        cnt += 1;
+                    }
+                }
+
+                return cnt;
+            }
+            
+            function multiply(list, multiplier) {
+                let products = '[';
+                for (i = 0; i <= list.length - 1; i++){
+                    prod = list[i] * multiplier;
+                    if (i < list.length - 1){
+                        products += prod + ', ';
+                    }
+                    else {
+                        products += prod + ']';
+                    }
+                    
+                }
+                return products;
+            }
+        </script>
+    </body>
+</html>
